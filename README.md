@@ -1,164 +1,309 @@
 # 🛡️ SpamShield AI
 
-**AI-Powered Email Spam Detection System**
+### Machine Learning Powered Email Spam Detection Platform
 
-SpamShield AI is a premium, portfolio-quality web application that detects spam
-emails in real time using a TF-IDF + Multinomial Naive Bayes machine learning
-pipeline, wrapped in a modern glassmorphic SaaS dashboard built with Streamlit.
+SpamShield AI is a machine learning-based email spam detection platform built using Python, Streamlit, Scikit-Learn, and Plotly.
+
+The application analyzes email content in real time using a TF-IDF Vectorizer and Multinomial Naive Bayes classifier to identify spam and legitimate emails. It provides confidence scoring, session analytics, prediction history, interactive visualizations, CSV export, and downloadable reports through a modern dashboard interface.
 
 ---
 
 ## ✨ Features
 
-- 🔍 **Real-time spam detection** — paste any email text and get an instant prediction
-- 📊 **Confidence score, risk level & prediction probability** for every scan
-- 🎯 **Model performance metrics** (accuracy, precision, recall) shown live in the sidebar
-- 📈 **Interactive analytics** — spam vs. safe distribution, confidence gauge, prediction history trend
-- 🕓 **Prediction history table** with per-session tracking
-- ⬇️ **Export results as CSV** and **download a full text report**
-- 🎨 **Modern glassmorphic UI** inspired by Stripe, Notion, Linear and Perplexity
-- 📱 **Fully responsive** layout
+- 🔍 Real-Time Email Spam Detection
+- 🤖 TF-IDF + Multinomial Naive Bayes Classification
+- 📊 Confidence Score & Spam Probability
+- 🚨 Risk Level Assessment
+- 📈 Interactive Analytics Dashboard
+- 🕒 Prediction History Tracking
+- 📋 Session-Based Scan Analytics
+- 📤 Export Results as CSV
+- 📄 Download Prediction Reports
+- 🎨 Modern Dashboard UI with Custom Styling
+- 📱 Responsive Layout
+
+---
+
+## 📊 Model Performance
+
+| Metric | Score |
+|----------|----------|
+| Accuracy | 96.5% |
+| Precision | 97.75% |
+| Recall | 94.57% |
+| F1 Score | 96.13% |
 
 ---
 
 ## 🧰 Tech Stack
 
-| Layer            | Technology                     |
-|-------------------|--------------------------------|
-| UI / Frontend      | Streamlit + Custom CSS         |
-| ML Model           | Scikit-Learn (Multinomial NB)  |
-| Feature Extraction | TF-IDF Vectorizer              |
-| Data Handling      | Pandas, NumPy                  |
-| Visualization      | Plotly                         |
-| Model Persistence  | Joblib                         |
+| Layer | Technology |
+|---------|-------------|
+| Frontend | Streamlit |
+| Machine Learning | Scikit-Learn |
+| Algorithm | Multinomial Naive Bayes |
+| Feature Engineering | TF-IDF Vectorizer |
+| Data Processing | Pandas, NumPy |
+| Visualization | Plotly |
+| Model Storage | Joblib |
+| Programming Language | Python |
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
-```
-spamshield-ai/
-├── app.py                 # Streamlit dashboard (UI + inference)
-├── train_model.py         # Dataset generation + model training script
-├── model.pkl              # Trained Multinomial Naive Bayes model
-├── vectorizer.pkl          # Fitted TF-IDF vectorizer
-├── model_metrics.json     # Saved accuracy / precision / recall metrics
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
-├── assets/
-│   └── logo.png           # (optional) app logo
-└── data/
-    └── spam.csv           # Labeled email dataset
+```text
+SpamShield-AI/
+│
+├── app.py
+├── train_model.py
+├── spam.csv
+├── model.pkl
+├── vectorizer.pkl
+├── model_metrics.json
+├── requirements.txt
+├── logo.png
+├── README.md
+│
+└── screenshots/
+    ├── dashboard.png
+    ├── spam-result.png
+    └── analytics.png
 ```
 
 ---
 
 ## ⚙️ Installation
 
-**1. Clone or download the project**
+### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/spamshield-ai.git
-cd spamshield-ai
+git clone https://github.com/srivastavanaavya75-lgtm/SpamShield-AI.git
+cd SpamShield-AI
 ```
 
-**2. Create a virtual environment (recommended)**
+### 2️⃣ Create Virtual Environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate      # On Windows: venv\Scripts\activate
 ```
 
-**3. Install dependencies**
+### Activate Environment
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Mac/Linux**
+
+```bash
+source venv/bin/activate
+```
+
+### 3️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**4. Train the model**
+### 4️⃣ Train Model
 
 ```bash
 python train_model.py
 ```
 
-This generates `data/spam.csv` (if not already present), trains the TF-IDF +
-Naive Bayes classifier, and saves `model.pkl`, `vectorizer.pkl`, and
-`model_metrics.json`.
+This generates:
 
-**5. Run the app**
+- model.pkl
+- vectorizer.pkl
+- model_metrics.json
+
+---
+
+### 5️⃣ Run Application
 
 ```bash
 streamlit run app.py
 ```
 
-The app will open automatically at `http://localhost:8501`.
+Application will open at:
 
----
-
-## 🚀 Usage
-
-1. Paste any email content into the **"Paste your email content here..."** box.
-2. Click **Analyze Email**.
-3. View the result — **🚨 Spam Detected** or **✅ Safe Email** — along with
-   confidence score, risk/trust level, and prediction probability.
-4. Check the **Analytics Dashboard** for spam vs. safe distribution and a
-   confidence trend across your session.
-5. Export your scan history as **CSV** or download a full **prediction report**.
-
----
-
-## 📸 Screenshots
-
-> Add screenshots of the hero section, analysis panel, and analytics dashboard here
-> after running the app locally.
-
-```
-assets/screenshot-hero.png
-assets/screenshot-results.png
-assets/screenshot-analytics.png
+```text
+http://localhost:8501
 ```
 
 ---
 
-## 🧪 Model Details
+## 🚀 How It Works
 
-- **Algorithm:** Multinomial Naive Bayes
-- **Vectorizer:** TF-IDF (unigrams + bigrams, top 3000 features)
-- **Training data:** Balanced synthetic dataset of spam and legitimate (ham)
-  emails covering common categories — promotional scams, phishing, fake
-  lottery/prize offers, loan/finance scams, and everyday academic/work
-  correspondence.
+### Step 1
 
-> 📝 **Note:** The bundled `data/spam.csv` is a synthetically generated demo
-> dataset so the project runs out-of-the-box with no external downloads. For
-> production use, replace it with a real-world labeled dataset (e.g. the
-> SMS Spam Collection or Enron-Spam dataset) and re-run `train_model.py` —
-> the pipeline will retrain automatically on any CSV with `text` and `label`
-> columns.
+Paste email content into the input area.
+
+### Step 2
+
+Click **Analyze Email**.
+
+### Step 3
+
+The system converts text into TF-IDF features.
+
+### Step 4
+
+The trained Multinomial Naive Bayes model predicts whether the email is:
+
+- 🚨 Spam
+- ✅ Safe
+
+### Step 5
+
+View:
+
+- Confidence Score
+- Spam Probability
+- Risk Level
+- Prediction History
+- Session Analytics
 
 ---
 
-## 🔮 Future Improvements
+## 📸 Application Preview
 
-- [ ] Add support for `.eml` file uploads
-- [ ] Integrate deep learning models (LSTM / DistilBERT) for comparison
-- [ ] Add multi-language spam detection
-- [ ] User authentication and persistent (database-backed) history
-- [ ] Deploy to Streamlit Community Cloud / Docker container
-- [ ] Add explainability (highlight spam-triggering words in the email)
+### Dashboard
+
+> Add screenshot here
+
+```text
+screenshots/dashboard.png
+```
+
+### Spam Detection Result
+
+> Add screenshot here
+
+```text
+screenshots/spam-result.png
+```
+
+### Analytics Dashboard
+
+> Add screenshot here
+
+```text
+screenshots/analytics.png
+```
 
 ---
 
-## 👤 Author
+## 📊 Analytics Features
 
-**SpamShield AI** — built as a portfolio / academic machine learning project
-demonstrating end-to-end ML app development: data preparation, model
-training, and production-style deployment with Streamlit.
+- Spam vs Safe Distribution Chart
+- Prediction Confidence Trend
+- Session Statistics
+- Historical Prediction Tracking
+- CSV Export
+- Report Download
 
-Feel free to fork, star ⭐, and customize this project for your own use.
+---
+
+## 🧠 Machine Learning Pipeline
+
+```text
+Email Text
+     │
+     ▼
+TF-IDF Vectorization
+     │
+     ▼
+Multinomial Naive Bayes
+     │
+     ▼
+Spam / Safe Prediction
+     │
+     ▼
+Confidence & Analytics
+```
+
+---
+
+## 📁 Dataset Information
+
+The project uses a labeled dataset containing spam and legitimate email samples.
+
+Categories include:
+
+- Lottery Scams
+- Prize Scams
+- Banking Fraud
+- Phishing Attempts
+- Promotional Spam
+- Academic Emails
+- Professional Communication
+- General Correspondence
+
+---
+
+## 🚀 Future Enhancements
+
+- Email File (.eml) Support
+- Deep Learning Models (BERT / DistilBERT)
+- Multi-Language Spam Detection
+- User Authentication System
+- Cloud Deployment
+- Database Integration
+- Explainable AI for Spam Keywords
+- Real Email Inbox Integration
+
+---
+
+## 🌐 Deployment
+
+Run locally using:
+
+```bash
+streamlit run app.py
+```
+
+Future deployment options:
+
+- Streamlit Community Cloud
+- Hugging Face Spaces
+- Render
+- Docker
+- AWS
+
+---
+
+## 👩‍💻 Author
+
+**Naavya Srivastava**
+
+B.Tech CSE (Data Science)
+
+GitHub:
+https://github.com/srivastavanaavya75-lgtm
+
+LinkedIn:
+https://www.linkedin.com/in/naavya-srivastava-661bb03ba/
+
+---
+
+## ⭐ Support
+
+If you found this project useful:
+
+- Star the repository ⭐
+- Fork the project 🍴
+- Share feedback 💡
 
 ---
 
 ## 📄 License
 
-This project is open-source and available under the MIT License.
+This project is licensed under the MIT License.
+
+---
+
+### Built with ❤️ using Python, Streamlit, Scikit-Learn and Plotly
