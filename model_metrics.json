@@ -1,0 +1,12 @@
+{
+    "algorithm": "Multinomial Naive Bayes",
+    "vectorizer": "TF-IDF (unigram + bigram)",
+    "accuracy": 96.5,
+    "precision": 97.75,
+    "recall": 94.57,
+    "f1_score": 96.13,
+    "dataset_size": 998,
+    "feature_count": 2039,
+    "train_size": 798,
+    "test_size": 200
+}
